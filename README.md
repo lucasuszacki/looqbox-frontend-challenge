@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# Looqbox FrontEnd Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Would you like to work with us? Apply [here](https://looqbox.gupy.io/)!
 
-Currently, two official plugins are available:
+This project is a solution for the FrontEnd technical challenge proposed by Looqbox. It consists of a Single Page Application (SPA) that consumes the PokeAPI to provide a dynamic interface for listing and searching Pokémon.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Objective
 
-## React Compiler
+The primary goal of this project is to build a robust application using ReactJS, demonstrating proficiency in state management, routing, and external API consumption. The application allows users to view a preloaded list, search by name or ID, and access detailed information for each Pokémon without reloading the page.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
 
-## Expanding the ESLint configuration
+The project follows a modular architecture to ensure a clear separation of concerns:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```text
+.
+├── src/
+    ├── assets/          # Media files and icons
+    ├── components/
+    │   ├── common/      # Shared UI components like Error and Empty states
+    │   └── pokemon/     # Domain-specific Pokémon components
+    ├── config/          # Theme configurations and Design Tokens
+    ├── context/         # React Contexts for global theme management
+    ├── hooks/           # Custom hooks for Redux and UI logic
+    ├── pages/           # High-level views (Home and Details)
+    ├── routes/          # Routing configuration
+    ├── services/        # API communication layer
+    ├── store/           # Global state management with Redux Toolkit
+    ├── types/           # TypeScript interface and type definitions
+    └── utils/           # Utility functions for formatting and color mapping
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Stack and Libraries
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **ReactJS & TypeScript**
+- **Redux Toolkit**
+- **Ant Design (antd)**
+- **React Router Dom**
+- **Recharts**
+- **Vite**
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Features
+
+- **Dynamic Search**
+- **Pagination**
+- **Dark Mode**
+- **Error Handling**
+- **Data Visualization**
+
+## Missing
+
+- **80% coverage for tests**
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 18 or higher recommended)
+- Yarn or NPM
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd looqbox-frontend-challenge
+
+```
+
+3. Install the dependencies:
+
+```bash
+yarn install
+
+```
+
+### Running the Project
+
+To start the development server, run:
+
+```bash
+yarn dev
+
+```
+
+The application will be available at `http://localhost:5173`.
+
+### Building for Production
+
+To create an optimized production build, run:
+
+```bash
+yarn build
+
 ```
